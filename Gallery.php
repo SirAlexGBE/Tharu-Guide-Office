@@ -74,94 +74,24 @@
       </div>
     </nav>
 
-    <!-- navbar end -->
-    <div class="col-md-12" style="padding-top: 20px">
-      <h2 style="text-align: center">Photo Gallery</h2>
-      <div class="row">
-        <div class="col-md-3">
-          <a href="Assets/Images/1.jpg"><img src="Assets/Images/1.jpg" class="img-thumbnail" alt="1" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/2.jpg"><img src="Assets/Images/2.jpg" class="img-thumbnail" alt="2" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/3.jpg"><img src="Assets/Images/3.jpg" class="img-thumbnail" alt="3" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/4.jpg"><img src="Assets/Images/4.jpg" class="img-thumbnail" alt="4" /></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <a href="Assets/Images/5.jpg"><img src="Assets/Images/5.jpg" class="img-thumbnail" alt="1" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/6.jpg"><img src="Assets/Images/6.jpg" class="img-thumbnail" alt="2" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/7.jpg"><img src="Assets/Images/7.jpg" class="img-thumbnail" alt="3" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/8.jpg"><img src="Assets/Images/8.jpg" class="img-thumbnail" alt="4" /></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <a href="Assets/Images/9.jpg"><img src="Assets/Images/9.jpg" class="img-thumbnail" alt="1" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/10.jpg"><img src="Assets/Images/10.jpg" class="img-thumbnail" alt="2" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/11.jpg"><img src="Assets/Images/11.jpg" class="img-thumbnail" alt="3" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/12.jpg"><img src="Assets/Images/12.jpg" class="img-thumbnail" alt="4" /></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <a href="Assets/Images/13.jpg"><img src="Assets/Images/13.jpg" class="img-thumbnail" alt="1" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/14.jpg"><img src="Assets/Images/14.jpg" class="img-thumbnail" alt="2" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/15.jpg"><img src="Assets/Images/15.jpg" class="img-thumbnail" alt="3" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/16.jpg"><img src="Assets/Images/16.jpg" class="img-thumbnail" alt="4" /></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <a href="Assets/Images/17.jpg"><img src="Assets/Images/17.jpg" class="img-thumbnail" alt="1" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/18.jpg"><img src="Assets/Images/18.jpg" class="img-thumbnail" alt="2" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/19.jpg"><img src="Assets/Images/19.jpg" class="img-thumbnail" alt="3" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/20.jpg"><img src="Assets/Images/20.jpg" class="img-thumbnail" alt="4" /></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <a href="Assets/Images/21.jpg"><img src="Assets/Images/21.jpg" class="img-thumbnail" alt="1" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/22.jpg"><img src="Assets/Images/22.jpg" class="img-thumbnail" alt="2" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/23.jpg"><img src="Assets/Images/23.jpg" class="img-thumbnail" alt="3" /></a>
-        </div>
-        <div class="col-md-3">
-          <a href="Assets/Images/24.jpg"><img src="Assets/Images/24.jpg" class="img-thumbnail" alt="4" /></a>
-        </div>
-      </div>
+    <div class="container-fluid" style="background-color: white; margin:0 auto; padding:20px">
+        <div class="container text-center" >
+        <?php
+        // Fetch all image files from the directory with specified extensions
+        $dir = glob('assets/images/*.{jpg,jpeg,webp,avif}', GLOB_BRACE);
+
+        // Loop through the images and display them
+        foreach($dir as $value) {
+            ?>
+            <a href="<?php echo $value; ?>">
+            <img src="<?php echo $value; ?>" alt="Gallery Image" style="width: 250px; height: 200px; padding: 10px;">
+          </a>
+            <?php
+        }
+        ?>
     </div>
+</div>
+</div>
     <!-- footer start -->
     <div class="container-fluid" style="background-color: rgb(0, 0, 0); color: #ffffff; padding: 30px 0px; margin-top: 10px">
       <div class="container">
