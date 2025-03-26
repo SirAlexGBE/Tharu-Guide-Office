@@ -85,63 +85,43 @@ else{
           </a>
         </div>
         <div class="col-md-8">
-          <h2 class="display-4 text-center" style="margin-top: 20px">
-            <i class="fa fa-book" aria-hidden="true"></i>
-            View Bookings
-          </h2>
-          <!-- row start -->
-          <div class="row">
-            <table class="table table-dark table-hover table-bordered">
-              <thead class="text-center">
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Date</th>
-                  <th>Activities</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                // database connection
-                include 'Connection.php';
-                $query='select * from bookings';
-                $run=mysqli_query($conn,$query);
-                while($row=mysqli_fetch_array($run))
-                {
-                  $a=$row['ID'];
-                  $b=$row['Name'];
-                  $c=$row['Email'];
-                  $d=$row['Phone'];
-                  $e=$row['Date'];
-                  $f=$row['Activities'];
-             
-                 ?>
-                <tr>
-                  <td scope="row"><?php echo $a;?></td>
-                  <td><?php echo $b;?></td>
-                  <td><?php echo $c;?></td>
-                  <td><?php echo $d;?></td>
-                  <td><?php echo $e;?></td>
-                  <td><?php echo $f;?></td>
+          <h2 class="display-4">Update Booking</h2>
+          <form action="update-booking.php" method="get" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="ID">ID:</label>
+              <input type="text" name="id1" id="id1" class="form-control" placeholder="" aria-describedby="helpId" value="<?php echo $_GET['ID']; ?>" />
+            </div>
+            <!-- name-->
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" name="name1" id="name1" class="form-control" placeholder="" aria-describedby="helpId" value="<?php echo $_GET['Name']; ?>" />
+            </div>
+            <!-- email -->
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="text" name="email1" id="email1" class="form-control" placeholder="" aria-describedby="helpId" value="<?php echo $_GET['email']; ?>" />
+            </div>
 
-                  <td>
-                    <a href="edit-booking.php?ID=<?php echo $a;?> &Name= <?php echo $b;?>&Email=<?php echo $c;?> &Phone=<?php echo $d;?> &Date=<?php echo $e;?> &Activities=<?php echo $f;?>">Edit</a>
-                  </td>
-                  <td><a href="delete-booking.php?Del=<?php echo $a; ?>">Delete</a></td>
-                </tr>
-                <?php
-                }
-                ?>
-              </tbody>
-            </table>
-            <!-- row end -->
-          </div>
+            <!-- phone -->
+            <div class="form-group">
+              <label for="phone">Phone:</label>
+              <input type="text" name="phone1" id="phone1" class="form-control" placeholder="" aria-describedby="helpId" value="<?php echo $_GET['phone']; ?>" />
+            </div>
+            <!-- Date -->
+            <div class="form-group">
+              <label for="Date">Phone:</label>
+              <input type="text" name="Date1" id="Date1" class="form-control" placeholder="" aria-describedby="helpId" value="<?php echo $_GET['Date']; ?>" />
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+              <label for="Activities">Activities:</label>
+              <input type="text" name="Activities1" id="Activities1" class="form-control" placeholder="" aria-describedby="helpId" value="<?php echo $_GET['Activities']; ?>" />
+            </div>
+            <!-- submit button -->
+            <button type="submit" class="btn btn-success btn-lg" name="submit">Update Booking</button>
+          </form>
         </div>
-
         <!-- content end -->
 
         <?php 
