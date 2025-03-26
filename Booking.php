@@ -77,72 +77,95 @@
     <!-- navbar end -->
 
     <div class="container mt-5">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header text-center bg-dark text-white">
-              <h4>Book an Appointment</h4>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center bg-dark text-white">
+          <h4>Book an Appointment</h4>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required />
             </div>
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <label for="name">Full Name</label>
-                  <input type="text" class="form-control" id="name" placeholder="Enter your full name" required />
-                </div>
 
-                <div class="form-group">
-                  <label for="email">Email Address</label>
-                  <input type="email" class="form-control" id="email" placeholder="Enter your email" required />
-                </div>
-                <div class="form-group">
-                  <label for="Phone">Phone Number</label>
-                  <input type="phone" class="form-control" id="phone" placeholder="Your Phone Number" />
-                </div>
-
-                <div class="form-group">
-                  <label for="date">Select Date</label>
-                  <input type="date" class="form-control" id="date" required />
-                </div>
-
-                <div class="form-group">
-                  <label>Select Activities</label>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="jungle_walk" />
-                    <label class="form-check-label" for="jungle_walk">Jungle Walk</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="jeep_safari" />
-                    <label class="form-check-label" for="jeep_safari">Jeep Safari</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="canoeing" />
-                    <label class="form-check-label" for="canoeing">Canoeing</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="bird_watching" />
-                    <label class="form-check-label" for="bird_watching">Bird Watching</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="mission_tiger" />
-                    <label class="form-check-label" for="mission_tiger">Mission Tiger Tour</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="lake_tour" />
-                    <label class="form-check-label" for="lake_tour">Twenty Thousand Lake Tour</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="cultural_tour" />
-                    <label class="form-check-label" for="cultural_tour">Cultural Tour</label>
-                  </div>
-                </div>
-
-                <button type="submit" class="btn btn-dark btn-block">Book Now</button>
-              </form>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required />
             </div>
-          </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" />
+            </div>
+
+            <div class="form-group">
+              <label for="date">Select Date</label>
+              <input type="date" class="form-control" id="date" name="date" required />
+            </div>
+
+            <div class="form-group">
+              <label>Select Activities</label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="jungle_walk" name="activities[]" value="Jungle Walk" />
+                <label class="form-check-label" for="jungle_walk">Jungle Walk</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="jeep_safari" name="activities[]" value="Jeep Safari" />
+                <label class="form-check-label" for="jeep_safari">Jeep Safari</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="canoeing" name="activities[]" value="Canoeing" />
+                <label class="form-check-label" for="canoeing">Canoeing</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="bird_watching" name="activities[]" value="Bird Watching" />
+                <label class="form-check-label" for="bird_watching">Bird Watching</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="mission_tiger" name="activities[]" value="Mission Tiger Tour" />
+                <label class="form-check-label" for="mission_tiger">Mission Tiger Tour</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="lake_tour" name="activities[]" value="Twenty Thousand Lake Tour" />
+                <label class="form-check-label" for="lake_tour">Twenty Thousand Lake Tour</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cultural_tour" name="activities[]" value="Cultural Tour" />
+                <label class="form-check-label" for="cultural_tour">Cultural Tour</label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-dark btn-block" name="submit">Book Now</button>
+          </form>
+
+          <?php
+          include 'admin/connection.php';
+
+          if (isset($_POST['submit'])) {
+              $a = mysqli_real_escape_string($conn, $_POST['name']);
+              $b = mysqli_real_escape_string($conn, $_POST['email']);
+              $c = mysqli_real_escape_string($conn, $_POST['phone']);
+              $d = isset($_POST['activities']) ? implode(", ", $_POST['activities']) : '';
+
+              $query = "INSERT INTO bookings (Name, Email, Phone, Activities) VALUES ('$a', '$b', '$c', '$d')";
+
+              $run = mysqli_query($conn, $query);
+
+              if ($run) {
+                  echo "<script>alert('Booking Successful');</script>";
+                  echo "<script>window.location.href='Booking.php';</script>";
+              } else {
+                  echo "<script>alert('Not Successful');</script>";
+              }
+          }
+          ?>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
     <!-- footer start -->
     <div class="container-fluid" style="background-color: rgb(0, 0, 0); color: #ffffff; padding: 30px 0px; margin-top: 10px">
