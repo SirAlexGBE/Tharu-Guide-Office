@@ -89,7 +89,7 @@
         </li>
       </ul>
       <div class="form-inline my-2 my-lg-0" style="margin-right: 120px">
-        <a href="Booking.Html" class="btn btn-outline-light">Book Now</a>
+        <a href="Booking.php" class="btn btn-outline-light">Book Now</a>
       </div>
     </nav>
 
