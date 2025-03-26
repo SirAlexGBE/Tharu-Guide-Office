@@ -162,8 +162,8 @@ else{
                   <td><?php echo $c;?></td>
                   <td><?php echo $d;?></td>
                   <td><?php echo $e;?></td>
-                  <td><a href="edit.php?id=<?php echo $a;?> &First_name=<?php echo $b;?>&Last_name=<?php echo $c;?> &username=<?php echo $d;?> &password=<?php echo $e;?>"> Edit</a></td>
-                  <td><a href="delete.php?Del=<?php echo $a; ?>">Delete</a></td>
+                  <td><a href="edit-user.php?id=<?php echo $a;?> &First_name=<?php echo $b;?>&Last_name=<?php echo $c;?> &username=<?php echo $d;?> &password=<?php echo $e;?>"> Edit</a></td>
+                  <td><a href="delete-user.php?Del=<?php echo $a; ?>">Delete</a></td>
                  </tr>
                  <?php
                 }
