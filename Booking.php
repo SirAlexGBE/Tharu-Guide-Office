@@ -147,9 +147,10 @@
               $a = mysqli_real_escape_string($conn, $_POST['name']);
               $b = mysqli_real_escape_string($conn, $_POST['email']);
               $c = mysqli_real_escape_string($conn, $_POST['phone']);
-              $d = isset($_POST['activities']) ? implode(", ", $_POST['activities']) : '';
+              $d = mysqli_real_escape_string($conn, $_POST['Date']);
+              $e = isset($_POST['activities']) ? implode(", ", $_POST['activities']) : '';
 
-              $query = "INSERT INTO bookings (Name, Email, Phone, Activities) VALUES ('$a', '$b', '$c', '$d')";
+              $query = "INSERT INTO bookings (Name, Email, Phone, Date, Activities) VALUES ('$a', '$b', '$c', '$d', '$e')";
 
               $run = mysqli_query($conn, $query);
 

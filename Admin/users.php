@@ -149,7 +149,7 @@ else{
                 $run=mysqli_query($conn,$query);
                 while($row=mysqli_fetch_array($run))
                 {
-                  $a=$row['Id'];
+                  $a=$row['ID'];
                   $b=$row['First_Name'];
                   $c=$row['Last_Name'];
                   $d=$row['Username'];

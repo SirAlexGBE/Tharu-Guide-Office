@@ -99,17 +99,17 @@ else{
             <!-- email -->
             <div class="form-group">
               <label for="email">Email:</label>
-              <input type="text" name="email1" id="email1" class="form-control" placeholder="" aria-describedby="helpId" value="<?php echo $_GET['email']; ?>" />
+              <input type="text" name="email1" id="email1" class="form-control" placeholder="" aria-describedby="helpId" value="<?php echo $_GET['Email']; ?>" />
             </div>
 
             <!-- phone -->
             <div class="form-group">
               <label for="phone">Phone:</label>
-              <input type="text" name="phone1" id="phone1" class="form-control" placeholder="" aria-describedby="helpId" value="<?php echo $_GET['phone']; ?>" />
+              <input type="text" name="phone1" id="phone1" class="form-control" placeholder="" aria-describedby="helpId" value="<?php echo $_GET['Phone']; ?>" />
             </div>
             <!-- Date -->
             <div class="form-group">
-              <label for="Date">Phone:</label>
+              <label for="Date">Date:</label>
               <input type="text" name="Date1" id="Date1" class="form-control" placeholder="" aria-describedby="helpId" value="<?php echo $_GET['Date']; ?>" />
             </div>
 

@@ -89,7 +89,7 @@ session_start();
       {
          $a= $_POST['Username'];
          $b= $_POST['Password'];
-         $query="select * from users where username='$a' and password='$b'";
+         $query="select * from Users where username='$a' and password='$b'";
          $run=mysqli_query($conn,$query);
          if(mysqli_num_rows($run)>0)
          {
